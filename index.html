@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Prime Roleplay — FiveM Sunucusu</title>
+    <meta name="description" content="Modern bir GTA V FiveM roleplay topluluğu: sürükleyici hikayeler, aktif ekip ve haftalık etkinlikler." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Açılış yükleyici ekranı -->
+    <div id="bootloader" class="bootloader" aria-live="polite" aria-label="Yükleniyor">
+      <div class="boot">
+        <div class="boot__folders">
+          <div class="folder folder--left">
+            <div class="folder__icon"></div>
+            <div class="folder__label">Sol Taşşağımdan</div>
+          </div>
+          <div class="folder folder--right">
+            <div class="folder__icon"></div>
+            <div class="folder__label">Sağ Taşşağıma</div>
+          </div>
+          <div class="boot__crowns" aria-hidden="true">
+          <img src="assets/transparan.png" class="crown" alt="" loading="lazy" decoding="async" style="--i:0; --top: 26px;" />
+          <img src="assets/transparan.png" class="crown" alt="" loading="lazy" decoding="async" style="--i:1; --top: 8px;" />
+          <img src="assets/transparan.png" class="crown" alt="" loading="lazy" decoding="async" style="--i:2; --top: 18px;" />
+          <img src="assets/transparan.png" class="crown" alt="" loading="lazy" decoding="async" style="--i:3; --top: 2px;" />
+          <img src="assets/transparan.png" class="crown" alt="" loading="lazy" decoding="async" style="--i:4; --top: 30px;" />
+          </div>
+        </div>
+        <div class="boot__progress">
+          <div class="progress">
+            <div class="progress__fill" style="width:0%"></div>
+          </div>
+          <div class="boot__status">
+            <span class="boot__pct">0%</span>
+            <span class="boot__eta">Estimated time: 5d 21hr 17m 23s</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="interactive-bg" aria-hidden="true"><canvas id="bg-canvas"></canvas></div>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="#top" aria-label="Ana Sayfa">
+          <img class="brand-logo" src="assets/transparan.png" alt="Prime Roleplay Logo" loading="eager" decoding="async" />
+          <span class="brand-text">Prime Roleplay</span>
+        </a>
+        <button class="nav-toggle" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <div class="nav-links" role="navigation">
+          <a href="#about">Hakkımızda</a>
+          <a href="https://example.com" target="_blank" rel="noopener">Wiki</a>
+          <a href="donate.html">Donate</a>
+          <a href="#discord" class="cta">Discord'a Katıl</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero section--full" aria-label="Karşılama">
+        <div class="bg glow"></div>
+        <div class="bg grid"></div>
+        <div class="container hero__content">
+          <h1 class="hero__title">
+            <span class="accent">Prime Roleplay</span>
+          </h1>
+          <p class="hero__tagline">
+            Sürükleyici hikayeler. Ciddi RP. Asla uyumayan bir şehir.
+          </p>
+          <div class="hero__actions">
+            <a id="apply-btn" class="btn btn--primary btn--xl" href="#" role="button">
+              Hemen Başvur
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="section section--padded" aria-label="Sunucu Hakkında">
+        <div class="container">
+          <h2 class="section__title">Sunucu Hakkında</h2>
+          <p class="section__lead">
+            Aktif ekip, dengeli ekonomi ve sık güncellemelerle özenle hazırlanmış, hikâyesi güçlü bir şehre adım at. Odak noktamız karakter odaklı hikâyeler, kaliteli etkileşimler ve adil oynanış.
+          </p>
+          <div class="feature-grid">
+            <div class="card reveal">
+              <h3>Ciddi Roleplay</h3>
+              <p>Karakter gelişimi ve gerçekçi senaryolara vurgu.</p>
+            </div>
+            <div class="card reveal">
+              <h3>Aktif Ekip</h3>
+              <p>RP'nin akıcı ve adil kalması için dost canlısı moderatörler ve adminler.</p>
+            </div>
+            <div class="card reveal">
+              <h3>Optimize Edilmiş Performans</h3>
+              <p>Düşük gecikme, optimize edilmiş scriptler ve sık iyileştirmeler.</p>
+            </div>
+            <div class="card reveal">
+              <h3>Haftalık Etkinlikler</h3>
+              <p>Hikâye arkları, işler ve sunucu çapında etkinliklerle sürekli tazelik.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="team" class="section section--padded" aria-label="Ekibimiz Hakkında">
+        <div class="container">
+          <h2 class="section__title">Ekibimiz Hakkında</h2>
+          <p class="section__lead reveal">
+            Prime Roleplay ekibi olarak şehrimizi sevgiyle ve ayrıntılara özen göstererek inşa ediyoruz. 
+            Hedefimiz; adil, akıcı ve hikâye odaklı bir RP deneyimi sunmak. Sunucu istikrarı, 
+            performans optimizasyonu ve topluluk geri bildirimleri bizim için öncelik.
+          </p>
+          <p class="section__lead reveal">
+            Yeni içerikler yayınlamadan önce kapsamlı testler yapıyor, 7/24 izleme ve hızlı müdahale ile 
+            hataları en kısa sürede gideriyoruz. Moderasyon ekibimiz her oyuncunun sesini duyurmasını sağlar; 
+            öneriler, istekler ve raporlar düzenli olarak değerlendirilir. Bu sayede şehrimiz her gün 
+            biraz daha gelişir.
+          </p>
+        </div>
+      </section>
+
+      <section id="discord" class="section section--cta" aria-label="Discord'a Katıl">
+        <div class="container cta">
+          <h2 class="section__title">Discordumuza Katıl</h2>
+          <p class="section__lead">Sunucuya gir, duyuruları oku ve toplulukla tanış.</p>
+          <a id="discord-btn" class="btn btn--glow" href="https://discord.gg/CAXHCkzbGW" target="_blank" rel="noopener" role="button">Discord'a Katıl</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer__inner">
+        <p>© <span id="year"></span> Prime Roleplay. Tüm hakları saklıdır.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+  </html>
+

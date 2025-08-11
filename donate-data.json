@@ -1,0 +1,12 @@
+{
+  "currency": "₺",
+  "items": [
+    { "title": "Premium Araç Paketi", "description": "Seçili yüksek kalite araçlar.(Araçların hızları oyundaki spor araçlarla aynı hızdadır herhangi bir ayrıcalık tanınmayacaktır.)", "price": 199, "badge": "Popüler", "url": "#" },
+    { "title": "İşletme Lisansı", "description": "Şehirde normal işletmelerden farklı isteğinize göre işletme sahibi olma ayrıcalığı.", "price": 349, "badge": "Popüler", "url": "#" },
+    { "title": "Özel Telefon", "description": "Kişisel isteğe göre 8 haneli telefon numarası.", "price": 99, "url": "#" },
+    { "title": "Özel Plaka", "description": "İstediğin yazıda benzersiz plaka.", "price": 49, "url": "#" },
+    { "title": "YMAP İstedği", "description": "İşletmeniz için YMAP isteği(Sunucuya fazla gelmesi durumunda başka istenebilir).", "price": 150, "url": "#" }
+  ]
+}
+
+

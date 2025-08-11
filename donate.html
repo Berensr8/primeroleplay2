@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Donate Mağazası — Prime Roleplay</title>
+    <meta name="description" content="Prime Roleplay donate mağazası: araç paketleri, işletme lisansları, VIP ve daha fazlası." />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="interactive-bg" aria-hidden="true"><canvas id="bg-canvas"></canvas></div>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="brand" href="index.html#top" aria-label="Ana Sayfa">
+          <img class="brand-logo" src="assets/transparan.png" alt="Prime Roleplay Logo" loading="eager" decoding="async" />
+          <span class="brand-text">Prime Roleplay</span>
+        </a>
+        <button class="nav-toggle" aria-label="Menüyü Aç/Kapat" aria-expanded="false">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </button>
+        <div class="nav-links" role="navigation">
+          <a href="index.html#about">Hakkında</a>
+          <a href="https://example.com" target="_blank" rel="noopener">Wiki</a>
+          <a href="donate.html">Donate</a>
+          <a href="index.html#discord" class="cta">Discord'a Katıl</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="section section--padded" aria-label="Donate Mağazası">
+        <div class="container">
+          <h1 class="section__title"><span class="accent">Donate Mağazası</span></h1>
+          <p class="section__lead">
+            Sunucuyu destekleyerek ayrıcalıklar kazan. Aşağıdan paket/ürün seçip satın alma sayfasına geçebilirsin.
+          </p>
+
+          <div id="product-grid" class="product-grid" role="list"></div>
+
+          <!-- Düzenleme için kolay yol: 
+               1) primeroleplay/donate-data.json dosyasını aç ve ürünleri düzenle.
+               2) Eğer JSON fetch edilemiyorsa, aşağıdaki inline JSON'u (id: donate-data) düzenleyebilirsin. -->
+          <script id="donate-data" type="application/json">
+            {
+              "currency": "₺",
+              "items": [
+                { "title": "Premium Araç Paketi", "description": "Seçili yüksek performanslı araçlar.", "price": 199, "badge": "Popüler", "url": "#" },
+                { "title": "İşletme Lisansı", "description": "Şehirde işletme sahibi olma ayrıcalığı.", "price": 349, "badge": "Popüler", "url": "#" },
+                { "title": "VIP (30 Gün)", "description": "Sırada öncelik ve küçük oyun içi avantajlar.", "price": 99, "url": "#" },
+                { "title": "Özel Plaka", "description": "İstediğin yazıda benzersiz plaka.", "price": 49, "url": "#" },
+                { "title": "Ev Mülkiyeti", "description": "Belirli bölgelerde ev sahipliği.", "price": 249, "url": "#" },
+                { "title": "Para Paketi", "description": "Ekonomi dengesini bozmadan uygun miktar.", "price": 79, "url": "#" }
+              ]
+            }
+          </script>
+
+          <p class="section__lead" style="margin-top: 22px;">
+            Satın alma işlemleri güvenli ödeme altyapısı üzerinden yapılır. Kurallar ve iade politikası için Discord'a başvur.
+          </p>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer__inner">
+        <p>© <span id="year"></span> Prime Roleplay. Tüm hakları saklıdır.</p>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      async function loadDonateData() {
+        const inline = document.getElementById('donate-data');
+        let data = null;
+        try {
+          const res = await fetch('donate-data.json', { cache: 'no-store' });
+          if (res.ok) {
+            data = await res.json();
+          }
+        } catch (e) {}
+        if (!data && inline?.textContent) {
+          try { data = JSON.parse(inline.textContent); } catch (e) {}
+        }
+        return data;
+      }
+
+      function renderProducts(cfg) {
+        const grid = document.getElementById('product-grid');
+        if (!grid || !cfg || !Array.isArray(cfg.items)) return;
+        const currency = cfg.currency ?? '₺';
+        grid.innerHTML = '';
+        for (const item of cfg.items) {
+          const el = document.createElement('article');
+          el.className = 'card product-card';
+          el.setAttribute('role', 'listitem');
+
+          if (item.badge) {
+            const b = document.createElement('div');
+            b.className = 'badge';
+            b.textContent = item.badge;
+            el.appendChild(b);
+          }
+
+          const h3 = document.createElement('h3');
+          h3.textContent = item.title ?? 'Ürün';
+          el.appendChild(h3);
+
+          const p = document.createElement('p');
+          p.textContent = item.description ?? '';
+          el.appendChild(p);
+
+          const price = document.createElement('div');
+          const amount = typeof item.price === 'number' ? item.price : Number(item.price) || 0;
+          price.className = 'price';
+          price.textContent = `${currency}${amount}`;
+          el.appendChild(price);
+
+          const a = document.createElement('a');
+          a.className = 'btn btn--primary';
+          a.href = item.url || '#';
+          a.target = '_blank';
+          a.rel = 'noopener';
+          a.textContent = 'Satın Al';
+          el.appendChild(a);
+
+          grid.appendChild(el);
+        }
+      }
+
+      loadDonateData().then(renderProducts);
+    </script>
+  </body>
+  </html>
+
+
